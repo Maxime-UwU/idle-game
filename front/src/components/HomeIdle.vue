@@ -1,22 +1,21 @@
 <script setup lang="ts">
 import axios from "axios"
-async function register() {
-  const data = {
-    username: 'test',
-    password: 'test1234'
-  }
-  await axios.post('http://localhost:3001/auth/register', data)
-  .catch(error => {
-      console.error("There was an error!", error);
-    });
-}
+// async function register() {
+//   const data = {
+//     username: 'test',
+//     password: 'test1234'
+//   }
+//   await axios.post('http://localhost:3001/auth/register', data)
+//   .catch(error => {
+//       console.error("There was an error!", error);
+//     });
+// }
   
 </script>
 
 <template>
   <div>
-    <h1>Hello Idle Game</h1>
-    <button class="text-red-500" @click="register()" >Test</button>
+    <h1 class="green">Hello Idle Game</h1>
   </div>
 </template>
 

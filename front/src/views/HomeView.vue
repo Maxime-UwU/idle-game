@@ -5,7 +5,8 @@ import MarketView from './MarketView.vue'
 
 <template>
   <main>
-    <TheWelcome />
     <MarketView />
+    <TheWelcome />
+    
   </main>
 </template>
