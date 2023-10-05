@@ -21,18 +21,20 @@ export const sellItem = async (body: MarketBody) => {
     }
 }
 
-
 export const getAllMarket = async (userId: string) => {
-    
     try {
-        const response = await axios.get(`${API_URL}/market/allMarket`, { params: { userId } });
-        
+        const response = await axios.get(`${API_URL}/market/allMarket`, {
+            params: {
+                userId: userId,
+            },
+        });
+
+        console.log(response.data);
         return response.data;
     } catch (error) {
         console.error(error);
     }
 };
-
 
 export interface Ressource {
     name: string

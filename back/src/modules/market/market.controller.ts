@@ -12,7 +12,7 @@ export function marketRoutes(app: Express) {
     })
 
     app.get('/market/allMarket', async (req, res) => {
-        const userId = req.body.userId?.toString();// Convertissez userId en chaîne de caractères
+        const userId = req.query.userId?.toString(); // Utilisez req.query pour récupérer l'userId
         if (!userId) {
             res.json({ success: false, message: 'Missing userId parameter' });
             return;

@@ -26,7 +26,7 @@ import { ref, onMounted, computed } from 'vue';
 import * as Market from '../api/market';
 import { type MarketBody } from '../api/market';
 import { type Ressource }  from '../api/market';
-import { isObjectType } from 'graphql';
+
 
 let displayForm = ref(false);
 let buttonText = 'Créer une vente'

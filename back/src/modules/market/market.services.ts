@@ -6,6 +6,7 @@ export async function sellItem(body: MarketBody) {
 
     const finalRessourceQuantity = body.ressource.quantity - body.quantity;
     const updatedMarketRessource = { ...body.ressource, quantity: finalRessourceQuantity };
+    
     await Ressources.updateOne(
         { userID: body.ressource.userID, name: body.ressource.name },
         { $set: { quantity: finalRessourceQuantity } }
@@ -28,7 +29,7 @@ export async function getAllMarket( userId: string ) {
         return { success: false, message: 'No items' };
     }
     
-    return { success: true, message: 'success', market };
+    return { success: true, message: 'success', allMarkets: market };
 }
 
 
