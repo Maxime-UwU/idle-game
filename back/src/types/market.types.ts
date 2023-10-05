@@ -1,6 +1,7 @@
-export interface Ressource {
-    name: string
+
+export interface Market{
+    userId: string,
+    ressource: string,
     quantity: number,
-    lvl: number,
-    userID: string,
+    price: number
 }

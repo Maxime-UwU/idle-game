@@ -1,4 +1,4 @@
-import { Ressources } from "@/db/models/Ressource";
+import { Ressources } from "@/db/models/Ressources";
 
 export async function getPlayerItems(body: { userId: '651d638002a411e2a5e30897' }) {
     const playerRessource = await Ressources.find({ userID: body.userId });
