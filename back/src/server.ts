@@ -2,8 +2,8 @@ import express from 'express'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
 import { registerAuthRoutes } from './modules/auth/auth.controller'
-
 import { ressourceRoutes } from './modules/ressources/resources.controlleur'
+import { marketRoutes } from './modules/market/market.controller'
 
 import { isLogin } from './modules/auth/auth.middleware'
 
@@ -28,6 +28,7 @@ export function initWebServer() {
     // On enregistre nos controllers
     registerAuthRoutes(app)
     ressourceRoutes(app)
+    marketRoutes(app)
     
 
     

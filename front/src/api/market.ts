@@ -12,14 +12,27 @@ export const getPlayerItems = async (userId: string) => {
     }
 };
 
-export const sellItem = async (body: any) => {
+export const sellItem = async (body: MarketBody) => {
     try {
-        const response = await axios.post(`${API_URL}/market/sellItem`, { body: body });
+        const response = await axios.post(`${API_URL}/market/sellItem`, body);
         return response.data;
     } catch (error) {
         console.error(error);
     }
 }
+
+
+export const getAllMarket = async (userId: string) => {
+    
+    try {
+        const response = await axios.get(`${API_URL}/market/allMarket`, { params: { userId } });
+        
+        return response.data;
+    } catch (error) {
+        console.error(error);
+    }
+};
+
 
 export interface Ressource {
     name: string
