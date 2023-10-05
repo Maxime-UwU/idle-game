@@ -30,7 +30,7 @@ export function registerAuthRoutes(app: Express) {
     })
 
     
-    app.get('/auth/me', requireLogin, (req, res) => {
+    app.get('/auth/me', requireLogin, (req: Request, res: Response) => {
         res.json(req.user)
     })
 

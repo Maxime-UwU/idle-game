@@ -4,7 +4,6 @@ import crypto from 'crypto'
 import { WithId } from "mongodb";
 
 export async function register(body: AuthRegisterBody) {
-    console.log("testtest")
     const alreadyExist = await Users.findOne({ username: body.username })
     if (alreadyExist) {
         return { success: false, message: 'User already exists' }
@@ -33,7 +32,6 @@ export async function login(body: AuthRegisterBody) {
     if (user.password !== hashedPassword) {
         return { success: false, message: 'Bad password' }
     }
-    
     const token = crypto.randomBytes(32).toString('hex')
     await Users.updateOne({ _id: user._id }, { $set: { token } })
     

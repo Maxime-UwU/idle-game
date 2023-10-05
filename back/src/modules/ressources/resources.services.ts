@@ -5,8 +5,6 @@ import { Ressources } from "@/db/models/Ressources";
 
 
 export async function getGoldAmount(ressourceName: string){
-    console.log("ressourceName: ")
-    console.log(ressourceName)
     const Resources = await Ressources.find({ name: ressourceName }).toArray();
     if (!Resources || Resources.length === 0) {
         return { success: false, message: 'No items' };

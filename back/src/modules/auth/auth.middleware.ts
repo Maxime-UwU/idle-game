@@ -6,7 +6,6 @@ export async function isLogin(req: Request, _res: Response, next: NextFunction) 
     if (bearer) {
         /*     _ = Bearer
            token = TOKEN */
-           console.log("test2")
         const [_, token] = bearer.split(' ')
         const user = await findByToken(token)
         req.user = user;
@@ -17,6 +16,7 @@ export async function isLogin(req: Request, _res: Response, next: NextFunction) 
         console.log( req.cookies)
         const token = req.cookies['token']
         if (token) {
+            console.log(token)
             const user = await findByToken(token)
             req.user = user;
             next();
