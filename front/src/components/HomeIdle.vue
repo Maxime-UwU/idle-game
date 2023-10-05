@@ -5,6 +5,7 @@ async function register(ressourceName: string) {
   const test = await axios.get(`http://localhost:3001/ressource?name=${ressourceName}`)
   console.log(test.data)
 } 
+
   
 </script>
 

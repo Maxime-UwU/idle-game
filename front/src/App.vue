@@ -1,21 +1,15 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HomeIdle.vue'
+import HomeView from './views/HomeView.vue'
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
-      <HelloWorld  />
-    </div>
-  </header>
-
+  <HomeView  />
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
+  html, body {
+    width: 100%;
+  }
 
 </style>
