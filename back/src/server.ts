@@ -2,6 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
 import { registerAuthRoutes } from './modules/auth/auth.controller'
+import { marketRoutes } from './modules/market/market.controller'
 import { isLogin } from './modules/auth/auth.middleware'
 
 export function initWebServer() {
@@ -24,6 +25,8 @@ export function initWebServer() {
 
     // On enregistre nos controllers
     registerAuthRoutes(app)
+
+    marketRoutes(app)
     
     // On ecoute sur le port configuré avec le .env
     app.listen(process.env.NODE_PORT, () => {
