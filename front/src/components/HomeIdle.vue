@@ -1,21 +1,18 @@
 <script setup lang="ts">
-import axios from "axios"
-// async function register() {
-//   const data = {
-//     username: 'test',
-//     password: 'test1234'
-//   }
-//   await axios.post('http://localhost:3001/auth/register', data)
-//   .catch(error => {
-//       console.error("There was an error!", error);
-//     });
-// }
+import axios from 'axios'
+
+async function register(ressourceName: string) {
+  const test = await axios.get(`http://localhost:3001/ressource?name=${ressourceName}`)
+  console.log(test.data)
+} 
+
   
 </script>
 
 <template>
   <div>
     <h1 class="green">Hello Idle Game</h1>
+    <button @click="register('gold')"></button>
   </div>
 </template>
 

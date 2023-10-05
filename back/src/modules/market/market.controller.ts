@@ -1,23 +1,13 @@
-// import { MarketSell } from "@/types/market.types";
 import { Express } from "express";
-import { Request, Response } from "express";
-import { getPlayerItems } from "./market.services";
+import { sellItem } from "./market.services";
+// import { Ressources } from "@/db/models/Ressources";
 
 export function marketRoutes(app: Express) {
 
-    app.get('/market/playerItems', async (req: Request, res: Response) => {
-        const userId = req.query.userId?.toString(); // Convertissez userId en chaîne de caractères
-        console.log("test")
-        console.log(userId)
-        if (!userId) {
-            res.json({ success: false, message: 'Missing userId parameter' });
-            return;
-        }
-    
-        const result = await getPlayerItems(userId);
+    app.post('/market/sellItem', async (req, res) => {
+        const result = await sellItem(req.body)
+        // on set un cookie si on a un token dans le result
         console.log(result);
-        res.json(result);
-    });
-
-
+        res.json(result)
+    })
 }

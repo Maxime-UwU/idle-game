@@ -1,6 +1,10 @@
-export interface Ressource {
-    name: string
+import Ressource from './ressource.types'
+
+export interface MarketBody {
+    userId: string,
+    ressource: Ressource,
     quantity: number,
-    lvl: number,
-    userID: string,
+    price: number
 }
+
+export default MarketBody

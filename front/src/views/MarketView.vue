@@ -1,12 +1,12 @@
 <template>
-  <div class="flex z-[1]">
+  <div class="flex">
     <button
       class="w-42 h-20 bg-blue-500 rounded-xl p-4 text-white"
       @click="toggleMarket()"
     >
       Market
     </button>
-    <div v-if="displayMarket" class="bg-[#161d3d] h-[100vh] w-full md:w-2/5 fixed right-0 flex items-center flex-col">
+    <div v-if="displayMarket" class="bg-[#161d3d] h-[100vh] w-[35rem] fixed right-0 flex items-center flex-col">
       <h1 class="text-4xl text-white font-bold mt-4">Magasin</h1>
       <MarketItemAdd />
       <MarketItemsList />

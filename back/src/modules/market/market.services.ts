@@ -1,10 +1,16 @@
-import { Ressources } from "@/db/models/Ressource";
+import { MarketBody } from '@/types/market.types';
+import { Market } from "@/db/models/Market";
 
-export async function getPlayerItems(userId: string) {
-    const playerResources = await Ressources.find({ userID: userId }).toArray();
-    if (!playerResources || playerResources.length === 0) {
-        return { success: false, message: 'No items' };
-    }
+export async function sellItem(body: MarketBody) {
+
+    console.log("testtest")
+ 
+    await Market.insertOne({
+        userId: body.userId,
+        quantity: body.quantity,
+        price: body.price,
+        ressource: body.ressource
+    })
     
-    return { success: true, message: 'Success', resources: playerResources };
+    return { success: true }
 }

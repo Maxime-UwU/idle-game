@@ -4,6 +4,7 @@ import crypto from 'crypto'
 import { WithId } from "mongodb";
 
 export async function register(body: AuthRegisterBody) {
+    console.log("testtest")
     const alreadyExist = await Users.findOne({ username: body.username })
     if (alreadyExist) {
         return { success: false, message: 'User already exists' }
@@ -42,3 +43,6 @@ export async function login(body: AuthRegisterBody) {
 export function findByToken(token: string) {
     return Users.findOne<WithId<SimpleUser>>({ token }, { projection: { password: 0, token: 0 }})
 }
+
+
+
