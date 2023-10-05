@@ -14,7 +14,6 @@ app.get('/ressource', async(req: Request, res: Response) => {
 
     const result = await getGoldAmount(ressourceName);
     res.json(result);
-
 })
 
 app.get('/market/playerItems', async (req: Request, res: Response) => {
@@ -25,6 +24,5 @@ app.get('/market/playerItems', async (req: Request, res: Response) => {
     }
     const result = await getPlayerItems(userId)
     res.json(result)
-
 })
 }

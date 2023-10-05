@@ -4,3 +4,5 @@ export interface Ressource {
     lvl: number,
     userID: string,
 }
+
+export default Ressource
