@@ -20,11 +20,13 @@ getRessource('651d75c95c2ac5bb2ef05afb')
 
 <template>
   <div>
-    <h1 class="green">Hello Idle Game</h1>
+
+    <h1>Medieval Factory</h1>
     <button @click="register()"> test 1</button>
     <div>
       <p v-for="(ressource, i) in gold" :key="i">{{ressource.name + ": " + ressource.quantity}}</p>
     </div>
+
   </div>
 </template>
 
