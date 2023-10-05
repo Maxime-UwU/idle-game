@@ -3,9 +3,9 @@ import axios from 'axios';
 let pseudo: string
 let password: string
 
-function login(){
+async function login(){
     const user={username:pseudo, password:password}
-    const test = await axios.get('http://localhost:3001/auth/me',user)
+    const test = await axios.get('http://localhost:3001/auth/me')
   console.log(test.data)
     console.log(user);
 }
