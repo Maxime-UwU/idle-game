@@ -17,4 +17,14 @@ export async function getGoldAmount(ressourceName: string){
 }
 
 
+export async function getPlayerItems( userId: string ) {
+    const playerRessource = await Ressources.find({ userID: userId }).toArray();
+    if (!playerRessource) {
+        return { success: false, message: 'No items' };
+    }
+    
+    return { success: true, message: 'success', playerRessource };
+}
+
+
 

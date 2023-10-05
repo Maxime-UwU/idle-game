@@ -1,4 +1,7 @@
 
+
+
+
 export interface Market{
     userId: string,
     ressource: string,

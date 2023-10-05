@@ -1,4 +1,6 @@
-export interface Ressource{
+export interface Ressource {
     name: string
-    quantity: number
+    quantity: number,
+    lvl: number,
+    userID: string,
 }
