@@ -15,7 +15,7 @@ async function register() {
 
 <template>
   <div>
-    <h1>Hello Idle Game</h1>
+    <h1>Medieval Factory</h1>
     <button class="text-red-500" @click="register()" >Test</button>
   </div>
 </template>
