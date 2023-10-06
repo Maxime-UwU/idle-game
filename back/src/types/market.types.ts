@@ -7,4 +7,11 @@ export interface MarketBody {
     price: number
 }
 
+export interface BuyBody {
+    userId: string,
+    market: MarketBody,
+    buyQuantity: number, 
+    buyPrice: number,
+}
+
 export default MarketBody

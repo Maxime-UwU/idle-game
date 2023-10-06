@@ -21,6 +21,15 @@ export const sellItem = async (body: MarketBody) => {
     }
 }
 
+export const buyItem = async (body: BuyBody) => {
+    try {
+        const response = await axios.post(`${API_URL}/market/buyItem`, body);
+        return response.data;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 export const getAllMarket = async (userId: string) => {
     try {
         const response = await axios.get(`${API_URL}/market/allMarket`, {
@@ -48,6 +57,13 @@ export interface MarketBody {
     ressource: Ressource,
     quantity: number,
     price: number
+}
+
+export interface BuyBody {
+    userId: string,
+    market: MarketBody,
+    buyQuantity: number, 
+    buyPrice: number,
 }
 
 
