@@ -7,7 +7,6 @@ export function marketRoutes(app: Express) {
     app.post('/market/sellItem', async (req, res) => {
         const result = await sellItem(req.body)
         // on set un cookie si on a un token dans le result
-        console.log(result);
         res.json(result)
     })
 
@@ -18,7 +17,6 @@ export function marketRoutes(app: Express) {
             return;
         }
         const result = await getAllMarket(userId)
-        console.log(result)
         res.json(result)
     })
 }

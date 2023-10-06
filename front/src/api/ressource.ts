@@ -23,6 +23,13 @@ export const getPlayerItems = async (userId: string) => {
     }
 };
 
+
+export const getPlayerGold = async (userId: string) => {
+    const playerItems = await getPlayerItems(userId);
+    const goldItem = playerItems?.playerRessource.find(element => element.name === "gold");
+    return goldItem ; // Renvoie la quantité d'or ou 0 si l'élément n'a pas été trouvé.
+}
+
 export async function register() {
     const data: SimpleUser = {
       username: 'thomas',

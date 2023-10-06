@@ -1,5 +1,6 @@
 //import { Ressource } from "@/types/ressource.types";
 import { Ressources } from "@/db/models/Ressources";
+import Ressource from "@/types/ressource.types";
 //import crypto from 'crypto';
 //import { WithId } from "mongodb";
 
@@ -24,5 +25,12 @@ export async function getPlayerItems( userId: string ) {
     return { success: true, message: 'success', playerRessource };
 }
 
+
+export async function buyItem(body: {ressource: Ressource,newQuantity: number}){
+    await Ressources.updateOne(
+      { userID: body.ressource.userID, name: body.ressource.name },
+      { $set: { quantity: body.newQuantity } }
+  );
+  }
 
 

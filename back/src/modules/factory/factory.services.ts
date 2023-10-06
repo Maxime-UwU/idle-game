@@ -22,3 +22,4 @@ export async function addPlayerFactory(factoryData: any) {
     return { success: false, message: "Erreur lors de l'ajout de la factory" };
   }
 }
+

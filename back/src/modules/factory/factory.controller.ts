@@ -4,7 +4,7 @@ import { Request, Response } from "express";
 import { getPlayerFactories } from "./factory.services";
 import { addPlayerFactory } from "./factory.services";
 
-export function marketRoutes(app: Express) {
+export function factoryRoutes(app: Express) {
   app.get("/factory", async (req: Request, res: Response) => {
     const userId = req.query.userID?.toString(); // Convertissez userId en chaîne de caractères
     if (!userId) {

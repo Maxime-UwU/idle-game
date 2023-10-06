@@ -1,6 +1,6 @@
 //import { Ressource } from "@/types/ressource.types";
 import { Express, Request, Response } from "express";
-import { getGoldAmount,getPlayerItems } from "./resources.services";
+import { getGoldAmount, getPlayerItems, buyItem } from "./resources.services";
 //import { requireLogin } from "./ressources.middleware";
 
 export function ressourceRoutes(app: Express) {
@@ -25,4 +25,10 @@ app.get('/market/playerItems', async (req: Request, res: Response) => {
     const result = await getPlayerItems(userId)
     res.json(result)
 })
+
+app.post('/market/buyItems', async (req, res)=>{
+    const result = await buyItem(req.body)
+    res.json(result)
+})
+
 }
