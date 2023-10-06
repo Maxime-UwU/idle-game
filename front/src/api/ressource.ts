@@ -9,6 +9,8 @@ export interface Ressource{
     quantity: number,
     lvl: number,
     userID: string,
+    production: number,
+    price: number
 }
 
 interface SimpleUser {
