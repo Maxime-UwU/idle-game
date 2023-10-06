@@ -1,20 +1,18 @@
+<!-- eslint-disable vue/multi-word-component-names -->
+// eslint-disable-next-line vue/multi-word-component-names
 <script setup lang="ts">
-import axios from 'axios';
+import { useAuthStore } from '../stores/auth'
+
+const auth = useAuthStore()
+
 let pseudo: string
 let password: string
 
-async function login(){
-    const user={username:pseudo, password:password}
-    const test = await axios.get('http://localhost:3001/auth/me')
-  console.log(test.data)
-    console.log(user);
-}
 </script>
-
 
 <template>
     <p>Bonjour, Messire ! Veuillez remplir ce parchemin d'inscription</p>
-        <form @submit.prevent="login()">
+        <form class="text-red-500" @submit.prevent="auth.tryLogin(pseudo,password)">
             <input type="username" v-model="pseudo">
             <input type="password" v-model="password">
             <button>Register</button>

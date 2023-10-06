@@ -1,16 +1,15 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HomeView from './views/HomeView.vue'
-import HelloWorld from './components/HomeIdle.vue'
-import CreateFactory from './components/CreateFactory.vue';
+import {  RouterView } from 'vue-router'
+import { useAuthStore } from './stores/auth';
 
+
+useAuthStore()
 </script>
 
 <template>
   <header>
     <div class="wrapper">
-      <CreateFactory />
-      <HelloWorld />
+      <router-view></router-view>
     </div>
   </header>
 </template>

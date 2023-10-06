@@ -11,10 +11,17 @@
       <MarketItemAdd />
       <MarketItemsList />
     </div>
+    <div>
+    <MarketView />
+    <TheWelcome />
   </div>
+  </div>
+
 </template>
 
 <script setup lang="ts">
+import TheWelcome from '../components/HomeIdle.vue'
+import MarketView from './MarketView.vue'
 import { ref } from 'vue';
 import MarketItemsList from '../components/MarketItemsList.vue';
 import MarketItemAdd from '../components/MarketItemAdd.vue';
