@@ -1,18 +1,9 @@
 <script setup lang="ts">
+
 import axios from 'axios'
-import { ref } from 'vue';
-import * as ressource from '../api/ressource';
-import {type Ressource}  from '../api/ressource';
-import { register} from '../api/ressource'
-
-let gold= ref<Ressource[]>([]);
+import { register, getRessource, gold} from '../api/ressource'
 
 
-async function getRessource(userID: string){
-   const playerItems= await ressource.getPlayerItems(userID)
-   if(playerItems)
-    gold.value = playerItems.playerRessource
-  }
 getRessource('651d75c95c2ac5bb2ef05afb')
 
 function genererateGoldMine(): string {
