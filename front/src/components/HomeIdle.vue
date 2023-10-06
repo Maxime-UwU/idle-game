@@ -91,6 +91,9 @@ async function handleFactoryButtonClick(factoryName: string) {
     <div>
       <p v-for="(ressource, i) in gold" :key="i">{{ressource.name + ": " + ressource.quantity}}</p>
     </div>
+	<div id="container">
+
+	</div>
   </div>
 </template>
 
