@@ -11,10 +11,10 @@ export async function getPlayerFactories(userId: string) {
   return { success: true, message: "Success", resources: playerFactories };
 }
 
-export async function getFactoriesUpgrades(factoryId: string) {
+export async function getFactoriesUpgrades(factoryId: any) {
   console.log("factory info: ");
   console.log(factoryId);
-  const factoriesData = await Factories.find({ userID: factoryId }).toArray();
+  const factoriesData = await Factories.find({ _id: factoryId }).toArray();
   if (!factoriesData || factoriesData.length === 0) {
     return { success: false, message: "No items" };
   }

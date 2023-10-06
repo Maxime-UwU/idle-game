@@ -7,7 +7,7 @@ async function createGoldMine() {
     // Utilisation d'Axios pour récupérer les données des factories
 
     const factoryData = {
-        name: "gold mine",
+        name: "gold",
         lvl: 1,
         production: 100,
         price: 100,
@@ -45,7 +45,7 @@ async function createStoneQuarry() {
     // Utilisation d'Axios pour récupérer les données des factories
 
     const factoryData = {
-        name: "stone quarry",
+        name: "stone",
         lvl: 1,
         production: 100,
         price: 250,
@@ -60,7 +60,7 @@ async function createScierie() {
     // Utilisation d'Axios pour récupérer les données des factories
 
     const factoryData = {
-        name: "scierie",
+        name: "wood",
         lvl: 1,
         production: 100,
         price: 250,
