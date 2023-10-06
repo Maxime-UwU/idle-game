@@ -1,21 +1,18 @@
 <script setup lang="ts">
-
 import axios from 'axios'
 import { register, getRessource, gold} from '../api/ressource'
-
+import { onMounted } from "vue";
 
 getRessource('651d75c95c2ac5bb2ef05afb')
 
-function genererateGoldMine(): string {
-	return '<img src="src/assets/test3.png" >';
-}
+onMounted(() => handleFactoryButtonClick('651d638002a411e2a5e30897'));
 
-function genererateStoneQuarry(): string {
-	return '<img src="src/assets/test2.png" >';
-}
-
-function genererateScierie(): string {
-	return '<img src="src/assets/test1.png" >';
+function displayUpgrade(index: number, name : string){
+	console.log("test");
+	// const upgrade = document.getElementById(`${name}-${index}`);
+	// if(upgrade){
+	// 	upgrade.innerHTML = `<LevelUp />`
+	// }
 }
 
 async function handleFactoryButtonClick(factoryName: string) {
@@ -33,28 +30,47 @@ async function handleFactoryButtonClick(factoryName: string) {
 		console.log(`Nom de la ligne ${index}: ${resource.name}`);
 		const container = document.getElementById('container');
 
-		if (resource.name == "gold mine") {
-			genererateGoldMine();
 
-			if (container) {
-				container.innerHTML += genererateGoldMine();
-			}
+		if (resource.name == "gold mine") {
+
+			const nouvelleImage = document.createElement('img');
+			nouvelleImage.src = 'src/assets/test1.png';  // Remplacez par le chemin de votre image
+
+				if(container){
+					container.appendChild(nouvelleImage)
+				}
+			
+				nouvelleImage.onclick = function() {
+					displayUpgrade(index, resource.name)
+				}
 		}
 
 		if (resource.name == "stone quarry") {
-			genererateStoneQuarry();
 
-			if (container) {
-				container.innerHTML += genererateStoneQuarry();
-			}
+			const nouvelleImage = document.createElement('img');
+			nouvelleImage.src = 'src/assets/test2.png';  // Remplacez par le chemin de votre image
+
+				if(container){
+					container.appendChild(nouvelleImage)
+				}
+			
+				nouvelleImage.onclick = function() {
+					displayUpgrade(index, resource.name)
+				}
 		}
 
 		if (resource.name == "scierie") {
-			genererateScierie();
 
-			if (container) {
-				container.innerHTML += genererateScierie();
-			}
+			const nouvelleImage = document.createElement('img');
+			nouvelleImage.src = 'src/assets/test1.png';  // Remplacez par le chemin de votre image
+
+				if(container){
+					container.appendChild(nouvelleImage)
+				}
+			
+				nouvelleImage.onclick = function() {
+					displayUpgrade(index, resource.name)
+				}
 		}
 
 
@@ -75,7 +91,6 @@ async function handleFactoryButtonClick(factoryName: string) {
     <div>
       <p v-for="(ressource, i) in gold" :key="i">{{ressource.name + ": " + ressource.quantity}}</p>
     </div>
-    <button @click="handleFactoryButtonClick('651d638002a411e2a5e30897')">Factory 1</button>
   </div>
 </template>
 
