@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {  RouterView } from 'vue-router'
 import { useAuthStore } from './stores/auth';
+import LevelUp from '../src/components/FactoryLevelUp.vue'
 
 
 useAuthStore()
@@ -9,6 +10,7 @@ useAuthStore()
 <template>
   <header>
     <div class="wrapper">
+      <LevelUp />
       <router-view></router-view>
     </div>
   </header>

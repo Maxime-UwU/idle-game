@@ -23,7 +23,7 @@ async function getFactoryLevel(factoryID: string) {
 </script>
 
 <template>
-    <button @click="getFactoryLevel('651d638002a411e2a5e30897')" >upgrade</button>
+    <button @click="getFactoryLevel('651e94722390299f98574104')" >upgrade</button>
     <div id="upgradeContainer" >
 
     </div>
