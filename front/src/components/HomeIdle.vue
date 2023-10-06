@@ -1,5 +1,7 @@
 <script setup lang="ts">
+
 import axios from "axios"
+import { onMounted } from "vue";
 async function register() {
 	const data = {
 		username: 'test',
@@ -9,20 +11,16 @@ async function register() {
 		.catch(error => {
 			console.error("There was an error!", error);
 		});
-
-
 }
 
-function genererateGoldMine(): string {
-	return '<img src="src/assets/test3.png" >';
-}
+onMounted(() => handleFactoryButtonClick('651d638002a411e2a5e30897'));
 
-function genererateStoneQuarry(): string {
-	return '<img src="src/assets/test2.png" >';
-}
-
-function genererateScierie(): string {
-	return '<img src="src/assets/test1.png" >';
+function displayUpgrade(index: number, name : string){
+	console.log("test");
+	// const upgrade = document.getElementById(`${name}-${index}`);
+	// if(upgrade){
+	// 	upgrade.innerHTML = `<LevelUp />`
+	// }
 }
 
 async function handleFactoryButtonClick(factoryName: string) {
@@ -40,28 +38,47 @@ async function handleFactoryButtonClick(factoryName: string) {
 		console.log(`Nom de la ligne ${index}: ${resource.name}`);
 		const container = document.getElementById('container');
 
-		if (resource.name == "gold mine") {
-			genererateGoldMine();
 
-			if (container) {
-				container.innerHTML += genererateGoldMine();
-			}
+		if (resource.name == "gold mine") {
+
+			const nouvelleImage = document.createElement('img');
+			nouvelleImage.src = 'src/assets/test1.png';  // Remplacez par le chemin de votre image
+
+				if(container){
+					container.appendChild(nouvelleImage)
+				}
+			
+				nouvelleImage.onclick = function() {
+					displayUpgrade(index, resource.name)
+				}
 		}
 
 		if (resource.name == "stone quarry") {
-			genererateStoneQuarry();
 
-			if (container) {
-				container.innerHTML += genererateStoneQuarry();
-			}
+			const nouvelleImage = document.createElement('img');
+			nouvelleImage.src = 'src/assets/test2.png';  // Remplacez par le chemin de votre image
+
+				if(container){
+					container.appendChild(nouvelleImage)
+				}
+			
+				nouvelleImage.onclick = function() {
+					displayUpgrade(index, resource.name)
+				}
 		}
 
 		if (resource.name == "scierie") {
-			genererateScierie();
 
-			if (container) {
-				container.innerHTML += genererateScierie();
-			}
+			const nouvelleImage = document.createElement('img');
+			nouvelleImage.src = 'src/assets/test1.png';  // Remplacez par le chemin de votre image
+
+				if(container){
+					container.appendChild(nouvelleImage)
+				}
+			
+				nouvelleImage.onclick = function() {
+					displayUpgrade(index, resource.name)
+				}
 		}
 
 

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HomeIdle.vue'
+import LevelUp from './components/FactoryLevelUp.vue'
 import CreateFactory from './components/CreateFactory.vue';
 </script>
 
@@ -9,6 +10,7 @@ import CreateFactory from './components/CreateFactory.vue';
     <div class="wrapper">
       <CreateFactory />
       <HelloWorld />
+      <LevelUp />
     </div>
   </header>
 </template>
