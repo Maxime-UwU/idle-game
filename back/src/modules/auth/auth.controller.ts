@@ -1,6 +1,6 @@
 import { AuthRegisterBody } from "@/types/auth.types";
 import { Express, Request, Response } from "express";
-import { login, register } from "./auth.services";
+import { login, register, findByToken } from "./auth.services";
 import { requireLogin } from "./auth.middleware";
 //import { findUsers } from "./auth.services";
 
@@ -32,6 +32,11 @@ export function registerAuthRoutes(app: Express) {
     
     app.get('/auth/me', requireLogin, (req: Request, res: Response) => {
         res.json(req.user)
+    })
+
+    app.get('/auth/isLogin', async(req: Request<unknown, unknown, string>,res)=>{
+        const result = await findByToken(req.body)
+        res.json(result)
     })
 
 }

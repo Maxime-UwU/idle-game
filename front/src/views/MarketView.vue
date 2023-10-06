@@ -39,6 +39,7 @@ import MarketItemAdd from '../components/MarketItemAdd.vue';
 const displayMarket = ref(false);
 const displayFactories = ref(false);
 
+
 const toggleMarket = () => {
   displayMarket.value = !displayMarket.value;
   displayFactories.value  = false;

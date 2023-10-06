@@ -18,7 +18,9 @@ interface SimpleUser {
 
 export const getPlayerItems = async (userId: string) => {
     try {
-    const response = await axios.get<{playerRessource:Ressource[]}>(`http://localhost:3001/market/playerItems?userId=${userId}`, {headers: {"Authorization":"Bearer", userToken}})
+    const response = await axios.get<{
+        forEach(arg0: (e: any) => void): unknown;playerRessource:Ressource[]
+}>(`http://localhost:3001/market/playerItems?userId=${userId}`, {headers: {"Authorization":"Bearer", userToken}})
         return response.data;
     } catch (error) {
         console.log("error get player")
@@ -33,19 +35,6 @@ export const getPlayerGold = async (userId: string) => {
     return goldItem || null; // Renvoie la quantité d'or ou 0 si l'élément n'a pas été trouvé.
 }
 
-export async function register() {
-    const data: SimpleUser = {
-      username: 'thomas',
-      password: 'motdepasse'
-    }
-    const test = await axios.post<string>(`http://localhost:3001/auth/login`,data)
-    .catch(error => {
-        console.error("There was an error!", error);
-      });
-      console.log(test) // récuperer le token pour l'envoeyr dans api ressource
-      //userToken = test
-  
-  }
 
 export  const gold= ref<Ressource[]>([]);
 

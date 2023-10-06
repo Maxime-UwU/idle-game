@@ -35,4 +35,14 @@ export async function buyItem(body: {ressource: Ressource,newQuantity: number}){
   );
   }
 
+  
+export async function farm(body: {ressource: Ressource,newQuantity: number}){
+    console.log("prod item")
+    console.log(body)
+    await Ressources.updateOne(
+      { userID: body.ressource.userID, name: body.ressource.name },
+      { $set: { quantity: body.newQuantity } }
+  );
+  }
+
 

@@ -38,6 +38,21 @@ export const useAuthStore = defineStore('auth', () => {
             }
         })
   }
+
+  const register = (username: string, password: string)=>{
+    axios.post('/auth/register', {username, password})
+    .then((res) => {
+      
+        if (res.data.token) {
+            localStorage.setItem('le_token', res.data.token)
+            setGlobalToken(res.data.token)
+             router.push('/game') 
+        } else {
+            router.push('/')
+
+        }
+    })
+  }
   
-  return { token, tryLogin }
+  return { token, tryLogin, register }
 })

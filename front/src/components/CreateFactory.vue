@@ -3,15 +3,15 @@ import axios from 'axios';
 import {getPlayerGold} from '../api/ressource'
 import { getRessource } from '../api/ressource'
 
-async function createGoldMine() {
+async function createGoldMine(userID: string) {
     // Utilisation d'Axios pour récupérer les données des factories
 
     const factoryData = {
-        name: "gold mine",
+        name: "gold",
         lvl: 1,
-        production: 100,
+        production: 10,
         price: 100,
-        userID: '651d75c95c2ac5bb2ef05afb',
+        userID: userID,
     }
 
     canBuy(factoryData)
@@ -30,48 +30,48 @@ async function canBuy(factoryData: any){
     }
 }
 
-async function createQuarry(name: string) {
+async function createQuarry(name: string, userID:string) {
 
 if(name == "gold"){
-    createGoldMine()
+    createGoldMine(userID)
 }else if(name == "wood"){
-    createScierie()
+    createScierie(userID)
 }else if(name == "stone"){
-    createStoneQuarry()
+    createStoneQuarry(userID)
 }
 }
 
-async function createStoneQuarry() {
+async function createStoneQuarry(userID: string) {
     // Utilisation d'Axios pour récupérer les données des factories
 
     const factoryData = {
-        name: "stone quarry",
+        name: "stone",
         lvl: 1,
-        production: 100,
+        production: 1,
         price: 250,
-        userID: "123456",
+        userID: userID,
     }
 
 
     canBuy(factoryData)
 }
 
-async function createScierie() {
+async function createScierie(userID:string) {
     // Utilisation d'Axios pour récupérer les données des factories
 
     const factoryData = {
-        name: "scierie",
+        name: "wood",
         lvl: 1,
-        production: 100,
+        production: 1,
         price: 250,
-        userID: "123456",
+        userID: userID,
     }
     
   
     canBuy(factoryData)
 }
 
-let Usines = [ {name: "gold", price: "100", lvl:0, img:"../assets/test3.png"}, {name: "wood", price:"250", lvl:1, img:"../assets/test1.png"}, {name: "stone",price:"250", lvl:1, img:"../assets/test2.png"}]
+let Usines = [ {name: "gold", price: "100", lvl:0, img:"src/assets/test3.png"}, {name: "wood", price:"250", lvl:1, img:"src/assets/test1.png"}, {name: "stone",price:"250", lvl:1, img:"src/assets/test2.png"}]
 
 </script>
 
@@ -79,7 +79,7 @@ let Usines = [ {name: "gold", price: "100", lvl:0, img:"../assets/test3.png"}, {
     <div class="relative mt-4">
         <div class="w-full px-8 grid gap-6 grid-cols-3">
             <div class="bg-gray-600 p-4 rounded-xl cursor-pointer" v-for="(item, i) in Usines" :key="i">
-                <button @click="createQuarry(item.name)">
+                <button @click="createQuarry(item.name,'651d75c95c2ac5bb2ef05afb')">
                     <img  :src=item.img>
                     <p class="text-white">{{ item.name }}</p>
                     <p class="text-white">{{ 'Prix : ' + item.price }}</p>

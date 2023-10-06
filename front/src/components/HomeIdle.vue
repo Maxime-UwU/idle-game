@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import axios from 'axios'
-import { register, getRessource, gold} from '../api/ressource'
+import {  getRessource, gold} from '../api/ressource'
 import { onMounted } from "vue";
 import { handleFactoryButtonClick } from '../api/factory'
 
+
 getRessource('651d75c95c2ac5bb2ef05afb')
 
-onMounted(() => handleFactoryButtonClick('651d638002a411e2a5e30897'));
+onMounted(() => handleFactoryButtonClick('651d75c95c2ac5bb2ef05afb'));
 
 </script>
 
@@ -14,7 +15,6 @@ onMounted(() => handleFactoryButtonClick('651d638002a411e2a5e30897'));
   <div>
 
     <h1>Medieval Factory</h1>
-    <button @click="register()"> test 1</button>
     <div>
       <p v-for="(ressource, i) in gold" :key="i">{{ressource.name + ": " + ressource.quantity}}</p>
     </div>
